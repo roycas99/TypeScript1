@@ -1,8 +1,26 @@
-import {Invoice} from './classess/class.js'
+import {Invoice} from './classess/invoiceClass.js';
+import { Payment } from './classess/paymentClass.js';
+import  {HasFormat} from './interfaces/hasFormat';
+
+
+// let docOne: HasFormat;
+// let docTwo: HasFormat;
+
+// docOne = new Invoice("Ahmed","Web",33);
+// docTwo = new Payment("Ang2","app",44);
+
+// let docs: HasFormat[] =[];
+
+// docs.push(docOne);
+// docs.push(docTwo);
+
+// console.log(docs);
+
+
 
 // intialization
 const invOne = new Invoice("Joyce","lockChange",30);
-const invTwo = new Invoice("jama","light bulb",10);
+const invTwo = new Invoice("jama2","light bulb",10);
 
 // making object array for Invoice
 
@@ -14,10 +32,10 @@ invoices.push(invTwo);
 invOne.client ="Sid";
 
 // to see everything in the array
-invoices.forEach(inv => {
-    console.log(inv.format(), inv.details);
+// invoices.forEach(inv => {
+//     console.log(inv.format(), inv.details);
     
-})
+// })
 
 
 
@@ -36,11 +54,15 @@ const form= document.querySelector('.new-item-form') as HTMLFormElement;
 // listening form as submitted
  form.addEventListener('submit',(e:Event)=>{
      e.preventDefault();
-     console.log(
-         type.value,
-         tofrom.value,
-         details.value,
-         amount.valueAsNumber
-     );
+
+let doc:HasFormat;
+if(type.value === 'invoice'){
+    doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber);
+
+}else{
+    doc=new Payment(tofrom.value,details.value,amount.valueAsNumber);
+
+}
+     console.log(doc);
      
  })

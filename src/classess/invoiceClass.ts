@@ -1,4 +1,7 @@
-export class Invoice {
+import {HasFormat} from '../interfaces/hasFormat.js' 
+
+
+export class Invoice implements HasFormat{
     // variables
     // public  client: string;
     // readonly details: string;
