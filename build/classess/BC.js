@@ -5,7 +5,7 @@ var BCTenants = (function () {
         this.unit = unit;
     }
     BCTenants.prototype.tenantfrm = function () {
-        return "".concat(this.fname, "  ").concat(this.lname, " is in this ").concat(this.unit);
+        return "".concat(this.fname, "  ").concat(this.lname, " is in  ").concat(this.unit, " unit");
     };
     return BCTenants;
 }());

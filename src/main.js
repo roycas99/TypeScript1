@@ -1,4 +1,3 @@
-"use strict";
 var Asha = {
     fname: "Asha",
     lname: "Ilmi",

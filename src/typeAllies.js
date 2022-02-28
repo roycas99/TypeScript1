@@ -1,4 +1,4 @@
-"use strict";
+// long way
 var det2 = function (user) {
     console.log("".concat(user.name, " says hello"));
 };

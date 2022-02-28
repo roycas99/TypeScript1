@@ -1,41 +1,9 @@
-import {Invoice} from './classess/invoiceClass.js';
-import { Payment } from './classess/paymentClass.js';
-import  {HasFormat} from './interfaces/hasFormat';
+import {BCTenants} from './classess/BC.js';
+import { ListTemplates } from './classess/listTemplates.js';
+import { ABuilding } from './classess/A.js';
+//import  {HasFormat} from './interfaces/hasFormat';
+import { Tenant } from './interfaces/tenantFormat.js';
 
-
-// let docOne: HasFormat;
-// let docTwo: HasFormat;
-
-// docOne = new Invoice("Ahmed","Web",33);
-// docTwo = new Payment("Ang2","app",44);
-
-// let docs: HasFormat[] =[];
-
-// docs.push(docOne);
-// docs.push(docTwo);
-
-// console.log(docs);
-
-
-
-// intialization
-const invOne = new Invoice("Joyce","lockChange",30);
-const invTwo = new Invoice("jama2","light bulb",10);
-
-// making object array for Invoice
-
-let invoices: Invoice[] = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-
-// because it is public i can change joyce to sid
-invOne.client ="Sid";
-
-// to see everything in the array
-// invoices.forEach(inv => {
-//     console.log(inv.format(), inv.details);
-    
-// })
 
 
 
@@ -44,25 +12,26 @@ const form= document.querySelector('.new-item-form') as HTMLFormElement;
 
 
 // inputs
- const type= document.querySelector('#type')as HTMLSelectElement;
- const tofrom= document.querySelector('#tofrom')as HTMLInputElement;
- const details= document.querySelector('#details')as HTMLInputElement;
- const amount= document.querySelector('#amount')as HTMLInputElement;
+ const building= document.querySelector('#building')as HTMLSelectElement;
+ const fname= document.querySelector('#fname')as HTMLInputElement;
+ const lname= document.querySelector('#lname')as HTMLInputElement;
+ const unit= document.querySelector('#unit')as HTMLInputElement;
 
-
+const ul = document.querySelector('ul')!;
+const list = new ListTemplates(ul);
 
 // listening form as submitted
  form.addEventListener('submit',(e:Event)=>{
      e.preventDefault();
 
-let doc:HasFormat;
-if(type.value === 'invoice'){
-    doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber);
+let resident :Tenant;
+if(building.value === '31-B' || "31-C"){
+    resident = new BCTenants (fname.value,lname.value,unit.valueAsNumber);
 
 }else{
-    doc=new Payment(tofrom.value,details.value,amount.valueAsNumber);
+    resident=new ABuilding(fname.value,lname.value,unit.valueAsNumber);
 
 }
-     console.log(doc);
+   list.render(resident,building.value,'end');
      
  })

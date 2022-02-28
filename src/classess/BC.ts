@@ -1,7 +1,8 @@
-import {HasFormat} from '../interfaces/hasFormat.js' 
+//import {HasFormat} from '../interfaces/hasFormat.js' 
+import { Tenant } from '../interfaces/tenantFormat.js';
 
 
-export class Invoice implements HasFormat{
+export class BCTenants implements Tenant{
     // variables
     // public  client: string;
     // readonly details: string;
@@ -12,16 +13,17 @@ export class Invoice implements HasFormat{
 
 constructor(
     
-    public client: string,
-     readonly details: string,
-     private amount: number,
+    private fname: string,
+    private lname: string,
+    readonly unit: number,
+   
 )
 {}
 
 // methods
 
-format(){
-    return `${this.client} owes $ ${this.amount} for ${this.details}`;
+tenantfrm(){
+    return `${this.fname}  ${this.lname} is in  ${this.unit} unit`;
 }
 
 }
