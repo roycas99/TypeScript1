@@ -4,16 +4,21 @@ export class ListTemplates {
     constructor(private container: HTMLUListElement){
 
     }
-    render(item: Tenant,heading:string, post: 'start' | 'end'){
+    render(item: Tenant,heading:string,unit:number, comment:string,post: 'start' | 'end'){
         const li = document.createElement('li');
 
         const h4 = document.createElement('h4');
-        h4.innerText = heading;
+        h4.innerText = `${heading}/ #${unit}`
         li.append(h4);
 
+        const h5 = document.createElement('h5');
+        h5.innerText = item.tenantfrm();
+        li.append(h5);
+       
         const p = document.createElement('p');
-        p.innerText = item.tenantfrm();
-        li.append(p);
+        p.innerText = `${comment}`;
+        li.append(p)
+
         if(post === 'start'){
             this.container.prepend(li);
         }else{

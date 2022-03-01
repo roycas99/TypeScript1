@@ -17,6 +17,9 @@ const form= document.querySelector('.new-item-form') as HTMLFormElement;
  const lname= document.querySelector('#lname')as HTMLInputElement;
  const unit= document.querySelector('#unit')as HTMLInputElement;
 
+ // text-area
+ const comment = document.querySelector('#comment') as HTMLTextAreaElement;
+
 const ul = document.querySelector('ul')!;
 const list = new ListTemplates(ul);
 
@@ -32,6 +35,6 @@ if(building.value === '31-B' || "31-C"){
     resident=new ABuilding(fname.value,lname.value,unit.valueAsNumber);
 
 }
-   list.render(resident,building.value,'end');
+   list.render(resident,building.value,unit.valueAsNumber,comment.value,'end');
      
  })

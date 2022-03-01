@@ -30,21 +30,25 @@
       </div>
       <div class="field">
         <label>unit:</label>
-        <input type="number" id="unit">
+        <input type="number" id="unit" required min="203" max="2208">
       </div>
       <div class="field">
         <label>first name:</label>
-        <input type="text" id="fname">
+        <input type="text" id="fname" required pattern="[a-zA-Z]+">
       </div>
       <div class="field">
         <label>last Name:</label>
-        <input type="text" id="lname">
+        <input type="text" id="lname" required pattern="[a-zA-Z]+">
+      </div>
+      <div class="text">
+<label for="text">Managment Aide comments:</label>
+<textarea name="text" id="comment" cols="30" rows="10"></textarea>
       </div>
 
       <button>Add</button>
     </form>
 
-    <a href="https://www.thenetninja.co.uk">The Net Ninja</a>
+    <a href="https://abshirteam.tech/">Abshir@MPHA</a>
   </footer>
 
   <script type="module" src='app.js'></script>
